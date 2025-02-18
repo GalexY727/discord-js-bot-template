@@ -1,6 +1,16 @@
-const { EmbedBuilder } = require('discord.js');
+const { EmbedBuilder } = require("discord.js");
 
-function createEmbed({ title, description, color, fields, thumbnailUrl, imageUrl, titleUrl }) {
+// Note: If you find an embed doesn't look as it should,
+// you likely need more parameters here.
+function createEmbed({
+    title,
+    description,
+    color,
+    fields,
+    thumbnailUrl,
+    imageUrl,
+    titleUrl,
+}) {
     const embed = new EmbedBuilder();
 
     if (title) {
@@ -16,7 +26,13 @@ function createEmbed({ title, description, color, fields, thumbnailUrl, imageUrl
     }
 
     if (fields) {
-        fields.forEach(field => embed.addFields({ name: field.name, value: field.value, inline: field.inline || false }));
+        fields.forEach((field) =>
+            embed.addFields({
+                name: field.name,
+                value: field.value,
+                inline: field.inline || false,
+            })
+        );
     }
 
     if (thumbnailUrl) {
